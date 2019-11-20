@@ -16,11 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-#import todas las views de app, que en realidad es una sola
+#import todas las views de app
 from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.login),
+    path('', views.login),
     path('altaCancion/', views.altaCancion),
+    path('bajaCancion/', views.bajaCancion),
+    path('listarCancion/', views.listaCancion),
+    path('modCancion/', views.modCancion),
+    path('principal/', views.principal),
+    path('logout/', views.logout),
+
 ]

@@ -7,6 +7,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework import viewsets
 from rest_framework import generics
+from rest_framework.views import APIView
 
 
 #librerias de rest_framework relacionadas con la autenticacion
@@ -40,13 +41,14 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    serializer_class = UserSerializer
     queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 
 
 class CancionViewSet(viewsets.ModelViewSet):
     """
-    Viewset de los usuarios
+    Viewset de los Canciones
     """
 
     authentication_classes = (TokenAuthentication,)

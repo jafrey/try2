@@ -29,14 +29,15 @@ from app.views import UserViewSet, CancionViewSet
 
 
 #routers
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r'users', UserViewSet, basename='users')
-router.register(r'canciones', CancionViewSet, basename='canciones')
+router.register(r'canciones', CancionViewSet, basename='users')
 urlpatterns = router.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('gen-tk/', obtain_auth_token, name='api_token_auth'),
+#    path('canciones/', CancionViewSet.as_view(), name="canciones")
 
 ]
